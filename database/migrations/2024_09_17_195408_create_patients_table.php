@@ -15,18 +15,18 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('full_name');
-            $table->string('responsible');
-            $table->string('referral');
-            $table->string('genre');
-            $table->string('phone');
-            $table->string('mobile_phone');
-            $table->string('business_phone');
-            $table->string('address');
-            $table->string('cep');
-            $table->string('city');
-            $table->string('uf');
-            $table->string('neighborhood');
-            $table->string('observations');
+            $table->string('responsible')->nullable();
+            $table->string('referral')->nullable();
+            $table->string('genre')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('mobile_phone')->nullable();
+            $table->string('business_phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('city')->nullable();
+            $table->string('uf')->nullable();
+            $table->string('neighborhood')->nullable();
+            $table->string('observations')->nullable();
         });
     }
 

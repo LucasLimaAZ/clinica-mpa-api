@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\MedicationsController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PrescriptionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -26,3 +28,5 @@ Route::get('/user', function (Request $request) {
 Route::post('/user/register', [UserController::class, 'register']);
 Route::resource('/patient', PatientController::class)->middleware('auth:sanctum');
 Route::resource('/medication', MedicationsController::class)->middleware('auth:sanctum');
+Route::resource('/message', MessagesController::class)->middleware('auth:sanctum');
+Route::resource('/prescription', PrescriptionsController::class)->middleware('auth:sanctum');
