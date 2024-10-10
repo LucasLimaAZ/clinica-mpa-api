@@ -30,3 +30,8 @@ Route::resource('/patient', PatientController::class)->middleware('auth:sanctum'
 Route::resource('/medication', MedicationsController::class)->middleware('auth:sanctum');
 Route::resource('/message', MessagesController::class)->middleware('auth:sanctum');
 Route::resource('/prescription', PrescriptionsController::class)->middleware('auth:sanctum');
+Route::get('/patients/range/{startId}/{endId}', [PatientController::class, 'getPatientsInRange'])->middleware('auth:sanctum');
+Route::get('/patients/count', [PatientController::class, 'countPatients'])->middleware('auth:sanctum');
+Route::get('/medications/count', [MedicationsController::class, 'countMedications'])->middleware('auth:sanctum');
+Route::get('/prescriptions/count', [PrescriptionsController::class, 'countPrescriptions'])->middleware('auth:sanctum');
+Route::get('/messages/count', [MessagesController::class, 'countMessages'])->middleware('auth:sanctum');

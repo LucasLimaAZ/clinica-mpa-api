@@ -55,4 +55,11 @@ class MedicationsController extends Controller
 
         return response()->json(['message' => 'Medication deleted successfully'], 200);
     }
+
+    public function countMedications()
+    {
+        $count = Medication::count();
+
+        return response()->json(['total' => $count], 200);
+    }
 }

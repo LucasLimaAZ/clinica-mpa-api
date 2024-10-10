@@ -9,7 +9,8 @@ class PrescriptionsController extends Controller
 {
     public function index()
     {
-        $prescriptions = Prescription::all();
+        $prescriptions = Prescription::with('patient')->get();
+
         return response()->json($prescriptions, 200);
     }
 
@@ -25,7 +26,7 @@ class PrescriptionsController extends Controller
 
     public function show(string $id)
     {
-        $prescription = Prescription::find($id);
+        $prescription = Prescription::with('patient')->find($id);
 
         if (!$prescription) {
             return response()->json(['prescription' => 'Prescription not found'], 404);
@@ -54,5 +55,12 @@ class PrescriptionsController extends Controller
         $prescription->delete();
 
         return response()->json(['prescription' => 'Prescription deleted successfully'], 200);
+    }
+
+    public function countPrescriptions()
+    {
+        $count = Prescription::count();
+
+        return response()->json(['total' => $count], 200);
     }
 }

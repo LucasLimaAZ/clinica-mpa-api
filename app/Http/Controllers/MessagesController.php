@@ -9,7 +9,8 @@ class MessagesController extends Controller
 {
     public function index()
     {
-        $messages = Message::all();
+        $messages = Message::with('patient:id,full_name,phone')->get();
+
         return response()->json($messages, 200);
     }
 
@@ -54,5 +55,12 @@ class MessagesController extends Controller
         $message->delete();
 
         return response()->json(['message' => 'Message deleted successfully'], 200);
+    }
+
+    public function countMessages()
+    {
+        $count = Message::count();
+
+        return response()->json(['total' => $count], 200);
     }
 }
