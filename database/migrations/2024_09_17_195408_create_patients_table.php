@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('cep')->nullable();
             $table->string('city')->nullable();
             $table->string('uf')->nullable();
+            $table->string('file_location')->nullable();
             $table->string('neighborhood')->nullable();
             $table->string('observations')->nullable();
         });

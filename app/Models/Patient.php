@@ -22,6 +22,7 @@ class Patient extends Model
         'city',
         'uf',
         'neighborhood',
-        'observations'
+        'observations',
+        'file_location'
     ];
 }

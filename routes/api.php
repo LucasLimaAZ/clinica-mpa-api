@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamRequestsController;
 use App\Http\Controllers\MedicationsController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\PatientController;
@@ -30,6 +31,7 @@ Route::resource('/patient', PatientController::class)->middleware('auth:sanctum'
 Route::resource('/medication', MedicationsController::class)->middleware('auth:sanctum');
 Route::resource('/message', MessagesController::class)->middleware('auth:sanctum');
 Route::resource('/prescription', PrescriptionsController::class)->middleware('auth:sanctum');
+Route::resource('/exam-request', ExamRequestsController::class)->middleware('auth:sanctum');
 Route::get('/patients/range/{startId}/{endId}', [PatientController::class, 'getPatientsInRange'])->middleware('auth:sanctum');
 Route::get('/patients/count', [PatientController::class, 'countPatients'])->middleware('auth:sanctum');
 Route::get('/medications/count', [MedicationsController::class, 'countMedications'])->middleware('auth:sanctum');
