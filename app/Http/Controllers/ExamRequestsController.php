@@ -9,7 +9,7 @@ class ExamRequestsController extends Controller
 {
     public function index()
     {
-        $examRequests = ExamRequest::with('patient:id,full_name,phone')->get();
+        $examRequests = ExamRequest::with('patient:id,full_name,phone,file_location')->get();
         return response()->json($examRequests, 200);
     }
 
