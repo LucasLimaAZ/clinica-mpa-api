@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('file_number')->autoIncrement();
             $table->string('full_name');
             $table->string('responsible')->nullable();
             $table->string('referral')->nullable();

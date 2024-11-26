@@ -56,10 +56,10 @@ class PatientController extends Controller
         return response()->json(['message' => 'Patient deleted successfully'], 200);
     }
 
-    public function getPatientsInRange(string $startId, string $endId)
+    public function getPatientsInRange(string $startNumber, string $endNumber)
     {
-        $patients = Patient::whereBetween('id', [$startId, $endId])
-            ->select('id', 'full_name')
+        $patients = Patient::whereBetween('file_number', [$startNumber, $endNumber])
+            ->select('file_number', 'full_name')
             ->get();
 
         return response()->json($patients, 200);
