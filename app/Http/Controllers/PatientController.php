@@ -15,7 +15,13 @@ class PatientController extends Controller
 
     public function store(Request $request)
     {
-        $patient = Patient::create($request->all());
+        $maxFileNumber = Patient::max('file_number') ?? 0;
+        $nextFileNumber = $maxFileNumber + 1;
+
+        $data = $request->all();
+        $data['file_number'] = $nextFileNumber;
+
+        $patient = Patient::create($data);
 
         return response()->json([
             'patient' => $patient,
