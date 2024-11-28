@@ -9,7 +9,7 @@ class MessagesController extends Controller
 {
     public function index()
     {
-        $messages = Message::with('patient:id,full_name,phone,mobile_phone,business_phone,file_location')->get();
+        $messages = Message::with('patient:id,full_name,phone,mobile_phone,business_phone,file_location,file_number')->get();
 
         return response()->json($messages, 200);
     }
